@@ -341,4 +341,31 @@ chmod 755 는 다음과 같이 해석합니다.
 7(소유자) 4 + 2 + 1 > 읽기, 쓰기, 실행 모두 가능.
 5(그룹) 4 + 1 > 읽기, 실행만 가능.
 5(이외) 4 + 1 > 읽기, 실행만 가능.
+---
+### 10. 데이터 영속성 검증
 
+바인드 마운트 설정으로 컨테이너를 삭제해도 데이터가 호스트에 안전하게 남는지 확인하는 과정입니다.
+
+먼저 `app/index.html` 파일의 내용을 "Data Persistence Test!"로 수정한 뒤, 실행 중인 컨테이너를 완전히 삭제했습니다.
+
+ryusungeun@SungEuns-MacBook-Pro workstation-develop % docker stop my-web-mounted
+my-web-mounted
+ryusungeun@SungEuns-MacBook-Pro workstation-develop % docker rm my-web-mounted
+my-web-mounted
+
+이제 동일한 설정으로 새로운 컨테이너를 실행하고 접속하여, 이전 데이터가 그대로 적용되었는지 확인했습니다.
+ryusungeun@SungEuns-MacBook-Pro workstation-develop %  docker run -d --name my-nginx-new -p 8080:80 -v $(pwd)/app:/usr/share/nginx/html my-web-server:1.0 
+0d5cb8c3c29c2547dcb9f63a4dd699164c311e3e3017dd0e5187df5b83802c1c
+ryusungeun@SungEuns-MacBook-Pro workstation-develop % curl http://localhost:8080 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Docker Web Server</title>
+</head>
+<body>
+    <h1>Data Persistence Test!</h1>
+    <p>HI</p> 
+</body>
+</html>
+
+바인드 마운트를 통해 데이터가 영속적으로 보존됨을 검증했습니다.
