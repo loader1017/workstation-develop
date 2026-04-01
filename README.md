@@ -334,13 +334,19 @@ docker run -d --name my-nginx -p 8080:80 -v $(pwd)/app:/usr/share/nginx/html my-
 상대경로는 폴더를 통째로 옮겨도 명령어를 실행하는 위치를 정확히 알면 동일하게 작동합니다.
 
 ### 파일 권한 숫자 표기
+
 파일 권한은 사용자, 그룹, 이외 3가지로 분류합니다.
+
 숫자료 표기하며 읽기(read)는 4, 쓰기(write)는 2, 실행(Execute)은 1 로 표기합니다.
+
 이 숫자들을 더해서 파일 권한을 표기합니다. 예를들어, 읽고 실행만 가능하게 하려면 4+1=5 가 됩니다.
+
+'''bash
 chmod 755 는 다음과 같이 해석합니다.
 7(소유자) 4 + 2 + 1 > 읽기, 쓰기, 실행 모두 가능.
 5(그룹) 4 + 1 > 읽기, 실행만 가능.
 5(이외) 4 + 1 > 읽기, 실행만 가능.
+
 ---
 ### 10. 데이터 영속성 검증
 
@@ -357,15 +363,6 @@ my-web-mounted
 ryusungeun@SungEuns-MacBook-Pro workstation-develop %  docker run -d --name my-nginx-new -p 8080:80 -v $(pwd)/app:/usr/share/nginx/html my-web-server:1.0 
 0d5cb8c3c29c2547dcb9f63a4dd699164c311e3e3017dd0e5187df5b83802c1c
 ryusungeun@SungEuns-MacBook-Pro workstation-develop % curl http://localhost:8080 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Docker Web Server</title>
-</head>
-<body>
-    <h1>Data Persistence Test!</h1>
-    <p>HI</p> 
-</body>
-</html>
+Data Persistence Test!
 
 바인드 마운트를 통해 데이터가 영속적으로 보존됨을 검증했습니다.
