@@ -320,7 +320,9 @@ $ docker run -d -p 8080:80 \
 
 
 ### 프로젝트 루트 디렉토리에서 실행
+
 docker run -d --name my-nginx -p 8080:80 -v $(pwd)/app:/usr/share/nginx/html my-web-server:1.0
+
 ---
 ## 9. 설명
 
