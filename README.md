@@ -318,10 +318,9 @@ $ docker run -d -p 8080:80 \
 
 아래 명령어를 통해 실행할 수 있습니다. 이 명령어는 포트와 볼륨 설정을 포함하고 있어, 누구든 동일한 환경을 재현할 수 있습니다.
 
-```bash
+
 ### 프로젝트 루트 디렉토리에서 실행
 docker run -d --name my-nginx -p 8080:80 -v $(pwd)/app:/usr/share/nginx/html my-web-server:1.0
-
 ---
 ## 9. 설명
 
