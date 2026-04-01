@@ -298,3 +298,5 @@ $ docker run -d -p 8080:80 \
 
 ### 변경 후
 <img width="1512" height="982" alt="screenshot2" src="https://github.com/user-attachments/assets/1aa09026-6ff1-47cd-aba0-3574ba256d73" />
+
+다른 조작 없이 app/index.html 에 있는 파일이 수정시 즉각 반영됩니다.
