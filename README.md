@@ -276,24 +276,25 @@ a79f9f472978df29191bb59744bbc49298390742927e38b3ee3e8f9f8105
 
 ## 6. 바인드 마운트
 
-### 실행 명령어
-```bash
-# 기존 컨테이너 정리
+## 실행 명령어
+
+### 기존 컨테이너 정리
 $ docker stop my-first-web
 my-first-web
 $ docker rm my-first-web
 my-first-web
 
-# -v 옵션으로 바인드 마운트 설정 후 실행
+### -v 옵션으로 바인드 마운트 설정 후 실행
 $ docker run -d -p 8080:80 \
   --name my-web-mounted \
   -v $(pwd)/app:/usr/share/nginx/html \
   my-web-server:1.0
 4b4d4fab1deabccdcc20cf645820107e9a7a88ea09e69c62876cdf73262442a1
 
-### 결과
+## 결과
 호스트에서 `app/index.html` 파일을 수정한 후, 웹 브라우저를 새로고침하자 즉시 변경사항이 반영되는 것을 확인했습니다.
+### 변경 전
+<img width="1004" height="569" alt="screenshot" src="https://github.com/user-attachments/assets/29d3303e-91db-4f6e-9d64-67c3cb336693" />
 
-| 변경 전 (Before)                               | 변경 후 (After)                               |
-| ---------------------------------------------- | --------------------------------------------- |
-| ![변경 전 스크린샷](./images/screenshot.png) | ![변경 후 스크린샷](./images/screenshot2.png) |
+### 변경 후
+<img width="1512" height="982" alt="screenshot2" src="https://github.com/user-attachments/assets/1aa09026-6ff1-47cd-aba0-3574ba256d73" />
