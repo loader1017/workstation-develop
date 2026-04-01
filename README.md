@@ -224,7 +224,7 @@ heredoc> <!DOCTYPE html>
     <title>My Docker Web Server</title>
 </head>
 <body>
-    <h1>Hello, Docker!</h1>
+    <h3>Hello, Docker!</h3>
     <p>This is my first web server.</p> 
 </body>
 </html>
@@ -372,6 +372,7 @@ ryusungeun@SungEuns-MacBook-Pro workstation-develop % curl http://localhost:8080
 Data Persistence Test!
 
 바인드 마운트를 통해 데이터가 영속적으로 보존됨을 검증했습니다.
+
 ---
 
 ## 11. 문제해결, 마무리
