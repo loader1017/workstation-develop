@@ -368,7 +368,7 @@ docker run -d --name my-nginx -p 8080:80 -v $(pwd)/app:/usr/share/nginx/html my-
 ---
 ### 10. 데이터 영속성 검증
 
-바인드 마운트 설정으로 컨테이너를 삭제해도 데이터가 호스트에 안전하게 남는지 확인하는 과정입니다.
+볼륨 생성으로 컨테이너를 삭제해도 데이터가 호스트에 안전하게 남는지 확인하는 과정입니다.
 
 먼저 `app/index.html` 파일의 내용을 "Data Persistence Test!"로 수정한 뒤, 실행 중인 컨테이너를 완전히 삭제했습니다.
 
@@ -382,8 +382,7 @@ ryusungeun@SungEuns-MacBook-Pro workstation-develop %  docker run -d --name my-n
 0d5cb8c3c29c2547dcb9f63a4dd699164c311e3e3017dd0e5187df5b83802c1c
 ryusungeun@SungEuns-MacBook-Pro workstation-develop % curl http://localhost:8080 
 Data Persistence Test!
-
-바인드 마운트를 통해 데이터가 영속적으로 보존됨을 검증했습니다.
+볼륨을 생성함으로 인해 컨테이너를 삭제하고 새 컨테이너를 실행했을 때에도 데이터가 그대로 보존되었습니다.
 
 ---
 
